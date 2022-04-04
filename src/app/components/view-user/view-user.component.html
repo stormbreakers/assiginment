@@ -1,0 +1,68 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <button mat-raised-button [routerLink]="['/dashboard']">Dashboard</button>
+      <button mat-raised-button [routerLink]="['/search']">Search</button>
+      <button mat-raised-button [routerLink]="['/history']">History</button>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">User Profile</h4>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="example-full-width">
+                    Name: {{userDetails?.name}}
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="card-avatar">
+                    <a href="javascript:void(0)">
+                      <img class="img" [src]="userDetails?.avatar_url" style="height: 100px; width: auto;" />
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-4" *ngIf="userDetails?.email">
+                  <div class="example-full-width">
+                    Email: {{userDetails?.email}}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="example-full-width">
+                    Public Repo: {{userDetails?.public_repos}}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="example-full-width">
+                    Public Gist: {{userDetails?.public_gists}}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="example-full-width">
+                    Created at: {{userDetails?.created_at| date: 'medium'}}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="example-full-width">
+                    <a mat-raised-button [href]="userDetails?.html_url" target="_blank">View Profile</a>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

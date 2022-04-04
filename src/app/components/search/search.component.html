@@ -1,0 +1,23 @@
+<app-buttons page="search"></app-buttons>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-chip-list #chipList>
+      <input #autocompleteInput type="text" placeholder="Search user" aria-label="Number" matInput
+        [formControl]="myControl" [matChipInputFor]="chipList" (keyup)="search($event)">
+    </mat-chip-list>
+
+    <div class="search-bar-list" *ngIf="autoCompleteList.length > 0">
+      <mat-list>
+        <div mat-subheader>User(s)</div>
+        <mat-list-item *ngFor="let user of autoCompleteList">
+          <div (click)="viewUserDetails(user)" style="cursor: pointer;">
+            <img mat-card-avatar [ngStyle]="{'background-image': getUrl(user.avatar_url)}"
+              style="background-size: cover; width: 30px;height: 30px;border-radius: 50%" />
+            <div mat-line>{{user.login}}</div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-form-field>
+
+</form>

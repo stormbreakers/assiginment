@@ -1,0 +1,16 @@
+<app-buttons page="history"></app-buttons>
+<div class="search-bar-list">
+  <mat-list>
+    <div mat-subheader>Search</div>
+    <mat-list-item *ngFor="let user of history$ | async">
+      <div (click)="viewUserDetails(user.user)" style="cursor: pointer;">
+        <img mat-card-avatar [ngStyle]="{'background-image': getUrl(user.avatar_url)}"
+          style="background-size: cover; width: 30px;height: 30px;border-radius: 50%" />
+        <div mat-line>{{user.login}}</div>
+      </div>
+      <button mat-icon-button aria-label="Remove user" (click)="deleteFromHistory(user)">
+        <mat-icon>highlight_remove</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</div>

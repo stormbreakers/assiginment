@@ -1,0 +1,9 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <button *ngIf="showDashboard" mat-raised-button [routerLink]="['/dashboard']">Dashboard</button>
+      <button *ngIf="showSearch" mat-raised-button [routerLink]="['/search']">Search</button>
+      <button *ngIf="showHistory" mat-raised-button [routerLink]="['/history']">History</button>
+    </div>
+  </div>
+</div>
